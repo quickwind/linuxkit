@@ -14,8 +14,6 @@ import (
 )
 
 const (
-	guestMetaData = "guestinfo.metadata"
-
 	guestUserData = "guestinfo.userdata"
 )
 
@@ -48,17 +46,6 @@ func (p *ProviderVMware) Probe() bool {
 
 // Extract gets both the AWS specific and generic userdata
 func (p *ProviderVMware) Extract() ([]byte, error) {
-	// Get host name. This must not fail
-	metaData, err := p.vmwareGet(guestMetaData)
-	if err != nil {
-		return nil, err
-	}
-
-	err = ioutil.WriteFile(path.Join(ConfigPath, "metadata"), metaData, 0644)
-	if err != nil {
-		return nil, fmt.Errorf("VMWare: Failed to write metadata: %s", err)
-	}
-
 	// Generic userdata
 	userData, err := p.vmwareGet(guestUserData)
 	if err != nil {
