@@ -78,7 +78,8 @@ func main() {
 		log.SetLevel(log.DebugLevel)
 	}
 
-	providers := []string{"aws", "gcp", "hetzner", "openstack", "scaleway", "vultr", "digitalocean", "packet", "vmware", "cdrom"}
+	// providers := []string{"aws", "gcp", "hetzner", "openstack", "scaleway", "vultr", "digitalocean", "packet", "vmware", "cdrom"}
+	providers := []string{"vmware", "cdrom"}
 	args := flag.Args()
 	if len(args) > 0 {
 		providers = args
