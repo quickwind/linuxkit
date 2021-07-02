@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os/exec"
-	"path"
 	"strings"
 
 	log "github.com/sirupsen/logrus"
